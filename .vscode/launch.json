@@ -6,7 +6,9 @@
       "type": "node",
       "program": "${workspaceFolder}/app1/main.js",
       "request": "launch",
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
       "env": {
         "TITLE": "Hello Node!",
         // replace with the url exposed by Business Application Studio
