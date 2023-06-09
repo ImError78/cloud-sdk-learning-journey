@@ -1,0 +1,28 @@
+_schema-version: "3.1"
+ID: mta-intro
+version: 0.0.1
+modules:
+- name: mta-intro-app1
+  type: javascript.nodejs
+  path: mta-intro-app1
+  properties:
+    A2URL: ~{app2-provided/url}
+    TITLE: Hello Node!
+  requires:
+  - name: app2-provided
+  provides:
+  - name: app1-provided
+    properties:
+      url: ${default-url}
+- name: mta-intro-app2
+  type: java.tomcat
+  path: mta-intro-app2
+  properties:
+    A1URL: ~{app1-provided/url}
+    TITLE: Hello Java!
+  requires:
+  - name: app1-provided
+  provides:
+  - name: app2-provided
+    properties:
+      url: ${default-url}
